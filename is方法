@@ -1,0 +1,27 @@
+is可以动态决定具体需要渲染哪个模板，如代码2-18所示。
+
+代码清单2-18 动态使用模板
+
+<template name="odd">
+  <view> odd </view>
+</template>
+
+
+<template name="even">
+  <view> even </view>
+</template>
+
+
+<block wx:for="{{[1, 2, 3, 4, 5]}}">
+  <template is="{{item % 2 == 0 ? 'even' : 'odd'}}"/>
+</block>
+
+
+
+<!-- 输出
+odd
+even
+odd
+even
+odd
+-->
